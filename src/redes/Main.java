@@ -98,6 +98,11 @@ public class Main {
             for(String client : clientList)
                 System.out.printf("%s:%s\n", networkIP, client);
 
+            //print server list
+            System.out.println("Clientes:");
+            for(String server : serverList)
+                System.out.printf("%s:%s\n", networkIP, server);
+
 
             //set up
             Message serverMessage, replyMessage;
@@ -471,6 +476,4 @@ public class Main {
         clientSocket.close();
         System.out.println("Fechando o cliente...");
     }
-
-    private static void clearScreen(){System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n");}
 }

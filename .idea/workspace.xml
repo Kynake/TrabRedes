@@ -17,23 +17,10 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redes/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+            <state relative-caret-position="503">
+              <caret line="479" lean-forward="true" selection-start-line="479" selection-end-line="479" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redes/Message.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
-              <folding>
-                <element signature="method#toByteArray#0;class#Message#0" />
-                <element signature="method#toMessage#0;class#Message#0" />
               </folding>
             </state>
           </provider>
@@ -48,6 +35,11 @@
         <option value="Enum" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>localhost</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -148,7 +140,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.First Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="redes.Main" />
       <module name="TrabRedes" />
@@ -263,7 +255,6 @@
         <state relative-caret-position="840">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -284,7 +275,6 @@
         <state relative-caret-position="1580">
           <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -305,7 +295,6 @@
         <state relative-caret-position="1580">
           <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -367,7 +356,6 @@
         <state relative-caret-position="1420">
           <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -429,7 +417,6 @@
         <state relative-caret-position="1420">
           <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -494,7 +481,6 @@
         <state relative-caret-position="1580">
           <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -559,7 +545,6 @@
         <state relative-caret-position="1580">
           <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -621,10 +606,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redes/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="490">
+          <caret line="134" column="35" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="35" />
           <folding>
-            <element signature="method#toByteArray#0;class#Message#0" />
             <element signature="method#toMessage#0;class#Message#0" />
           </folding>
         </state>
@@ -632,8 +616,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        <state relative-caret-position="503">
+          <caret line="479" lean-forward="true" selection-start-line="479" selection-end-line="479" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
