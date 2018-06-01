@@ -130,22 +130,22 @@ public class Main {
                             SERVER_HELLO,
                             "Hello! i'm a server",
                             localServerPort,
-                            "localhost",
+                            "::1",
                             clientReplyPort
                     );
                     sendData = Message.toByteArray(replyMessage);
 
                     //send Server Hello reply
-                    sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), clientReplyPort);
+                    sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("::1"), clientReplyPort);
                     localServerSocket.send(sendPacket);
-                    System.out.printf("Resposta Server Hello enviada para localhost:%d\n", clientReplyPort);
+                    System.out.printf("Resposta Server Hello enviada para ::1:%d\n", clientReplyPort);
                     break;
 
                 case CLIENT_MESSAGE: //Client Message
                     System.out.println("Client Message received.");
 
                     //analyze message
-                    if(receivedMessage.getDestinationIP().equals("localhost")){ //same network message
+                    if(receivedMessage.getDestinationIP().equals("::1")){ //same network message
                         if(clientList.contains(String.valueOf(receivedMessage.getDestinationPort()))){ //known client
                             //construct server message
                             serverMessage = new Message(
@@ -158,29 +158,29 @@ public class Main {
                             sendData = Message.toByteArray(serverMessage);
 
                             //send Server Message
-                            sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), receivedMessage.getDestinationPort());
+                            sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("::1"), receivedMessage.getDestinationPort());
                             localServerSocket.send(sendPacket);
-                            System.out.printf("Mensagem Server Message enviada para localhost:%d\n", receivedMessage.getDestinationPort());
+                            System.out.printf("Mensagem Server Message enviada para ::1:%d\n", receivedMessage.getDestinationPort());
 
                         } else if(receivedMessage.getDestinationPort() == localServerPort){ //the client sent me, the local server, a message
-                            System.out.printf("Mensagem do cliente localhost:%d para este servidor recebida: %s\n", receivedMessage.getSourcePort(), receivedMessage.getData());
+                            System.out.printf("Mensagem do cliente ::1:%d para este servidor recebida: %s\n", receivedMessage.getSourcePort(), receivedMessage.getData());
                         } else{ //unknown client
-                            System.out.printf("O cliente localhost:%d enviou uma mensagem para porta desconhecida. Mandando reply de Destination Unreachable...\n", receivedMessage.getSourcePort());
+                            System.out.printf("O cliente ::1:%d enviou uma mensagem para porta desconhecida. Mandando reply de Destination Unreachable...\n", receivedMessage.getSourcePort());
 
                             //construct reply message
                             replyMessage = new Message(
                                     SERVER_MESSAGE,
                                     "Destination Unreachable",
                                     localServerPort,
-                                    "localhost",
+                                    "::1",
                                     receivedMessage.getSourcePort()
                             );
                             sendData = Message.toByteArray(replyMessage);
 
                             //send Server Message reply
-                            sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), receivedMessage.getSourcePort());
+                            sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("::1"), receivedMessage.getSourcePort());
                             localServerSocket.send(sendPacket);
-                            System.out.printf("Mensagem Server Message enviada para localhost:%d\n", receivedMessage.getSourcePort());
+                            System.out.printf("Mensagem Server Message enviada para ::1:%d\n", receivedMessage.getSourcePort());
 
                         }
                     } else if(serverList.contains(receivedMessage.getDestinationIP())){ //another network
@@ -202,22 +202,22 @@ public class Main {
                         System.out.printf("Resposta Server Message enviada para %s:%d\n", receivedMessage.getDestinationIP(), remoteServersPort);
 
                     } else{ //unknown network
-                        System.out.printf("O cliente localhost:%d enviou uma mensagem para rede desconhecida. Mandando reply de Destination Unreachable...\n", receivedMessage.getSourcePort());
+                        System.out.printf("O cliente ::1:%d enviou uma mensagem para rede desconhecida. Mandando reply de Destination Unreachable...\n", receivedMessage.getSourcePort());
 
                         //construct reply message
                         replyMessage = new Message(
                                 SERVER_MESSAGE,
                                 "Destination Unreachable",
                                 localServerPort,
-                                "localhost",
+                                "::1",
                                 receivedMessage.getSourcePort()
                         );
                         sendData = Message.toByteArray(replyMessage);
 
                         //send Server Message reply
-                        sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), receivedMessage.getSourcePort());
+                        sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("::1"), receivedMessage.getSourcePort());
                         localServerSocket.send(sendPacket);
-                        System.out.printf("Resposta Server Message enviada para localhost:%d\n", receivedMessage.getSourcePort());
+                        System.out.printf("Resposta Server Message enviada para ::1:%d\n", receivedMessage.getSourcePort());
                     }
 
                     break;
@@ -248,7 +248,7 @@ public class Main {
                     //interpret message
                     if(receivedMessage.getDestinationIP().equals(networkIP)){ //this network
                         if(clientList.contains(String.valueOf(receivedMessage.getDestinationPort()))){ //known client
-                            System.out.printf("Mensagem de %s:%d para localhost:%d\n", receivedPacket.getAddress().getHostAddress(), receivedMessage.getSourcePort(), receivedMessage.getDestinationPort());
+                            System.out.printf("Mensagem de %s:%d para ::1:%d\n", receivedPacket.getAddress().getHostAddress(), receivedMessage.getSourcePort(), receivedMessage.getDestinationPort());
 
                             //construct Server Message
                             serverMessage = new Message (
@@ -261,9 +261,9 @@ public class Main {
                             sendData = Message.toByteArray(serverMessage);
 
                             //send Server Message
-                            sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), receivedMessage.getDestinationPort());
+                            sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("::1"), receivedMessage.getDestinationPort());
                             localServerSocket.send(sendPacket);
-                            System.out.printf("Mensagem Server Message enviada para localhost:%d\n", receivedMessage.getDestinationPort());
+                            System.out.printf("Mensagem Server Message enviada para ::1:%d\n", receivedMessage.getDestinationPort());
 
                         } else if(receivedMessage.getDestinationPort() == localServerPort){ //the remote server sent a message to this local server
                             System.out.printf("Mensagem de %s:%d para este servidor recebida: %s\n", receivedPacket.getAddress().getHostAddress(), receivedMessage.getSourcePort(), receivedMessage.getData());
@@ -301,7 +301,7 @@ public class Main {
                         //send Server Message reply
                         sendPacket = new DatagramPacket(sendData, sendData.length, receivedPacket.getAddress(), receivedMessage.getSourcePort());
                         localServerSocket.send(sendPacket);
-                        System.out.printf("Resposta Server Message enviada para localhost:%d\n", receivedMessage.getSourcePort());
+                        System.out.printf("Resposta Server Message enviada para ::1:%d\n", receivedMessage.getSourcePort());
                     }
                     break;
 
@@ -323,14 +323,14 @@ public class Main {
         Message sendMessage, receivedMessage;
         DatagramPacket sendPacket, receivedPacket = new DatagramPacket(receivedData, receivedData.length);
 
-        String localServerIP = "localhost";
+        String localServerIP = "::1";
         InetAddress localServerAddress = InetAddress.getByName(localServerIP);
         DatagramSocket clientSocket = new DatagramSocket();
         clientPort = clientSocket.getLocalPort();
 
         //console print
         System.out.println("Porta local: "+clientPort);
-        System.out.println("Conectando-se ao servidor: localhost:"+localServerPort);
+        System.out.println("Conectando-se ao servidor: ::1:"+localServerPort);
 
         //construct hello message
         sendMessage = new Message(
@@ -452,7 +452,7 @@ public class Main {
                 InetAddress sendAddress;
                 int sendPort;
 
-                if(sendMessage.getDestinationIP().equals("localhost")){
+                if(sendMessage.getDestinationIP().equals("::1")){
                     sendAddress = InetAddress.getByName(sendMessage.getDestinationIP());
                     sendPort = sendMessage.getDestinationPort();
                 } else{
