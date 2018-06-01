@@ -99,9 +99,9 @@ public class Main {
                 System.out.printf("%s:%s\n", networkIP, client);
 
             //print server list
-            System.out.println("Clientes:");
+            System.out.println("Servidores:");
             for(String server : serverList)
-                System.out.printf("%s:%s\n", networkIP, server);
+                System.out.printf("%s:%d\n", server, DEFAULT_SERVER_PORT);
 
 
             //set up
